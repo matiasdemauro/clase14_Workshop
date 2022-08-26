@@ -1,10 +1,21 @@
-import './style.css'
 import React from 'react'
+import './style.css'
+import CartWidget from '../CartWidget';
 
-const NavBar = () => {
-  return (
+
+const NavBar = ({categoria , temp}) => {
+ console.log(categoria)
+ console.log(temp);
+ 
+    return (
+      <>{/* <div className = 'cajaSup'>
+        <p>categorias : {categoria}</p>
+        <p>temp °C : {temp}</p>
+        </div>*/}
+     <div> <CartWidget/> </div>  
     <div className='nav'>
-      
+    
+
     <ul className='menu'> 
         <li className='item'>Home</li>
         <li className='item'>
@@ -20,7 +31,8 @@ const NavBar = () => {
         <li className='item'>Contacto</li>
   </ul>
 </div>
-  )
+</>
+  );
 }
 
 export default NavBar

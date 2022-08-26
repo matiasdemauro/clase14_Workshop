@@ -6,7 +6,12 @@
     background-color: rgb(176, 167, 129, 0.5);
     height: 35px;
 }
-
+.cajaSup p{
+    border: 2px solid #000;
+    padding-inline : 1em;
+    padding: 10px;
+    
+}
 .menu {
     display: flex;
     position: absolute;
