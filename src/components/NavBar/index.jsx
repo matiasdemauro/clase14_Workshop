@@ -1,6 +1,7 @@
 import React from 'react'
-import './style.css'
 import CartWidget from '../CartWidget';
+import './style.css'
+
 
 
 const NavBar = ({categoria , temp}) => {
@@ -12,26 +13,27 @@ const NavBar = ({categoria , temp}) => {
         <p>categorias : {categoria}</p>
         <p>temp °C : {temp}</p>
         </div>*/}
-     <div> <CartWidget/> </div>  
     <div className='nav'>
     
 
     <ul className='menu'> 
-        <li className='item'>Home</li>
-        <li className='item'>
+    <a href='#'>  <li className='item'>Gianne-app</li> </a>
+    <a href='#'>   <li className='item'>
               Productos
               <ul className='submenu'>
-                  <li className='subitem'>Sillones</li>
-                  <li className='subitem'>Mesas</li>
-                  <li className='subitem'>Bazar</li>
-                  <li className='subitem'>Deco</li>
+                 <a href='#'> <li className='subitem'>Sillones</li></a>
+                 <a href='#'> <li className='subitem'>Mesas</li></a>
+                 <a href='#'> <li className='subitem'>Bazar</li></a>
+                 <a href='#'> <li className='subitem'>Deco</li></a>
               </ul>
-        </li>
-        <li className='item'>Nosotros</li>
-        <li className='item'>Contacto</li>
+        </li> </a>
+        <a href='#'>   <li className='item'>Nosotros</li> </a>
+        <a href='#'>   <li className='item'>Contacto</li> </a>
   </ul>
-</div>
-</>
+      
+  </div>
+  <CartWidget/>
+    </>
   );
 }
 

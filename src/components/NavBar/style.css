@@ -1,28 +1,33 @@
 .nav {
+    margin-top: 30px;
     padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: rgb(176, 167, 129, 0.5);
-    height: 35px;
-}
-.cajaSup p{
-    border: 2px solid #000;
-    padding-inline : 1em;
-    padding: 10px;
     
+    height: 40px;
 }
+
 .menu {
     display: flex;
     position: absolute;
     list-style: none;
+    
+    border-radius: 1em;
+}
+.menu a{
+    text-decoration: none;
+    color: #000;
 }
 
 .item {
+    position: relative;
     font-size: 20px;
     border-radius: 1em;
     padding-inline: 10px;
     list-style: none;
+    z-index: 20;
+   
 }
 
 .submenu {
@@ -30,25 +35,26 @@
     padding: 5px;
     display: none;
     list-style: none;
+    
 }
 
 .submenu li {
     font-size: 18px;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 3px;
     border-radius: 1em;
     width: 140%;
     margin-left: -20%;
 }
 
 .submenu li:hover {
-    background-color: rgb(176, 167, 129, 0.5);
-    color: #000;
+    background-color: rgb(176, 167, 129);
+    color: beige;
 }
 
 .item:hover {
-    background-color: rgb(176, 167, 129, 0.5);
+    background-color: rgb(176, 167, 129, 0.7);
     color: white;
     cursor: pointer;
 }
