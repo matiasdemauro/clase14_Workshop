@@ -12,7 +12,7 @@
     display: flex;
     position: absolute;
     list-style: none;
-    
+   
     border-radius: 1em;
 }
 .menu a{
@@ -54,7 +54,8 @@
 }
 
 .item:hover {
-    background-color: rgb(176, 167, 129, 0.7);
+  /* background-color: rgb(176, 167, 129, 0.7);*/
+  
     color: white;
     cursor: pointer;
 }
