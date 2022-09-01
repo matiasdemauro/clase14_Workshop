@@ -21,7 +21,8 @@ const NavBar = () => {
     
 
     <ul style={{
-       backgroundColor : navColor
+       backgroundColor : navColor,
+       
     }} className='menu'
     > 
     <a href='/#'>  <li className='item'>Gianne-app</li> </a>

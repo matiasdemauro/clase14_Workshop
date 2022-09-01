@@ -4,7 +4,7 @@ import './style.css';
 
 const ItemListContainer = ({greeting}) => {
   const agregarAlCarrito = (stock) => {
-    console.log(`Se agrego la cantidad ${stock} al carrito`);
+    alert(`Se agrego la cantidad ${stock} al carrito`);
   }
   return (
     <div className='list-style-container'>

@@ -13,6 +13,10 @@ const ItemCount = ({stock , initial , onAdd}) => {
     }
     const handleDecrement = () => {
        // desarrollo del decremen
+       if(count <= stock && count > 1 ) {
+        setCount(count-1);
+       } else{
+        alert('Se permite al menos 1 producto');}
     }
  
     
@@ -28,7 +32,7 @@ const ItemCount = ({stock , initial , onAdd}) => {
     }, [count]);
 
     return (
-    <div>
+    <div className='botonera'>
         <button onClick= {handleDecrement}> - </button>
         <h2>{count}</h2>
         <button onClick= {handleAdd}> + </button>

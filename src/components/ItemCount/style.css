@@ -1,0 +1,16 @@
+.botonera{
+    margin-top: 100px;
+    display: flex;
+
+}
+.botonera button{
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+button{
+    margin: 10px;
+}
+h2{
+    margin: 5px;
+}
