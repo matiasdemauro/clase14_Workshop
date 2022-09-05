@@ -1,0 +1,6 @@
+.list-container{
+    border: 2px solid blue;
+    display: flex;
+    
+    /*background-image: url('../img/mesa_onix.png'); */
+}

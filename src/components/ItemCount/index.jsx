@@ -6,7 +6,7 @@ const ItemCount = ({stock , initial , onAdd}) => {
   const [count, setCount] = useState(initial);
     const handleAdd = () =>{
         if(count < stock) {
-            setCount (count+1);
+            setCount  (count+1);
         } else{
             alert('No hay suficiente stock disponible');}
 
@@ -18,11 +18,14 @@ const ItemCount = ({stock , initial , onAdd}) => {
        } else{
         alert('Se permite al menos 1 producto');}
     }
- 
+    const addCart = () =>{
+        onAdd(count);
+        setCount(initial);
+    }
     
     //ciclo de vida
     useEffect (()=> {
-        //el array de dependencias vacio implica que el callback se ejecutrara cuando e MONTA el componente por UNICA vez.
+        //el array de dependencia s vacio implica que el callback se ejecutrara cuando e MONTA el componente por UNICA vez.
         console.log('se monto el ItemCount');
     } , []);
     
@@ -36,7 +39,7 @@ const ItemCount = ({stock , initial , onAdd}) => {
         <button onClick= {handleDecrement}> - </button>
         <h2>{count}</h2>
         <button onClick= {handleAdd}> + </button>
-        <button onClick={() => onAdd(count)}> Agregar al carrito </button>
+        <button onClick={addCart}> Agregar al carrito </button>
     </div>
   )
 }
