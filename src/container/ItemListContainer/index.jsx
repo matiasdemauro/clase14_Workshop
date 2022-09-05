@@ -17,7 +17,7 @@ useEffect(()=>{
   const obtenerProducts = new Promise ((accept, reject) =>{
     setTimeout(() => {
       accept(products)
-    }, 0);
+    }, 2000);
   }) 
   // consumo la promesa:
 //pasos: crear la IIFE y los bloques try catch
