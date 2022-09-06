@@ -19,7 +19,7 @@ const NavBar = () => {
       <>
     <div className='nav'>
     
-
+    
     <ul style={{
        backgroundColor : navColor,
        
@@ -38,9 +38,9 @@ const NavBar = () => {
         <a href='/#'>   <li className='item'>Nosotros</li> </a>
         <a href='/#'>   <li className='item'>Contacto</li> </a>
         <CartWidget/>
-        <Select handleColor ={onChangeColor}/>
+        
   </ul>
-      
+  <Select handleColor ={onChangeColor}/>
   </div>
   
     </>

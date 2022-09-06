@@ -240,7 +240,7 @@ export const products = [
       categoria: "promociones",
       cantidad: "1",
       stock: "3",
-      img: "./img/almohadon_tussor.png"
+      img: "../img/almohadon_tussor.png"
     },
     {
       id: 28,

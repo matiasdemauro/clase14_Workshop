@@ -5,7 +5,7 @@
  
 }
 body{
-  background-image: url('./components/img/fondo1.png');
+  background-image: url('../public/img/fondo1.png');
   background-size: cover;
   background-attachment: fixed;
 }
