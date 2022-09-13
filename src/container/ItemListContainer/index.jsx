@@ -1,7 +1,7 @@
 import React , {useState , useEffect} from 'react';
 //import ItemCount from '../../components/ItemCount';
 import './style.css';
-import { products } from './../../data/products';
+//import { products } from './../../data/products';
 
 
 import ItemList from './../../components/ItemList/index';
@@ -14,17 +14,17 @@ const ItemListContainer = ({greeting}) => {
 useEffect(()=>{
 ( async ()=> {
   //creo la promesa
-  const obtenerProducts = new Promise ((accept, reject) =>{
+ /* const obtenerProducts = new Promise ((accept, reject) =>{
     setTimeout(() => {
       accept(products)
     }, 2000);
-  }) 
+  }) */
   // consumo la promesa:
 //pasos: crear la IIFE y los bloques try catch
   try{
-    const response = await obtenerProducts;
-    
-    setProductos(response); //ahora persiste
+    const response = await fetch("https://fakestoreapi.com/products");
+    const productos = await response.json();
+    setProductos(productos);
   }
   catch(error){
         console.log(error);

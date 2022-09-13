@@ -18,10 +18,10 @@ const ItemCount = ({stock , initial , onAdd}) => {
        } else{
         alert('Se permite al menos 1 producto');}
     }
-    const addCart = () =>{
+   /* const addCart = () =>{
         onAdd(count);
         setCount(initial);
-    }
+    } */
     
     //ciclo de vida
     useEffect (()=> {
@@ -39,7 +39,8 @@ const ItemCount = ({stock , initial , onAdd}) => {
         <button onClick= {handleDecrement}> - </button>
         <h2>{count}</h2>
         <button onClick= {handleAdd}> + </button>
-        <button onClick={addCart}> Agregar al carrito </button>
+        <button onClick={() => onAdd(count)}> Agregar al carrito </button>
+        
     </div>
   )
 }
