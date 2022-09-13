@@ -20,6 +20,7 @@ const NavBar = () => {
     <div className='nav'>
     
     
+   
     <ul style={{
        backgroundColor : navColor,
        
@@ -31,9 +32,8 @@ const NavBar = () => {
     <Link to='/category/electronics'> <li className='item'>Electronics</li></Link>
     <Link to='/category/jewelery'> <li className='item'>Jewelery</li></Link>
     <CartWidget/>
-        
-  </ul>
-  <Select handleColor ={onChangeColor}/>
+    <Select handleColor ={onChangeColor}/>
+    </ul>
   </div>
   
     </>

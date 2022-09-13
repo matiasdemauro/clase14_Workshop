@@ -1,3 +1,9 @@
 .selector{
-    margin-left: 650px;
+    display: flex;
+    justify-content: center;
+   
+}
+.selector select{
+    background: bisque;
+    border-radius: 10px;
 }

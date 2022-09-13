@@ -3,14 +3,16 @@ import React , {useState , useEffect} from 'react';
 import './style.css';
 //import { products } from './../../data/products';
 
-
 import ItemList from './../../components/ItemList/index';
+import { useParams } from 'react-router-dom';
 
 
 const ItemListContainer = ({greeting}) => {
  //Seteamos la respuesta en un estado para que permanezcan y no mueran dsp de la ejecución
    const [productos , setProductos] = useState([])
- //--------TRAER UN ARREGLO PARA CONSUMIRLO--------------//
+  const {categoryId} = useParams();
+  console.log(categoryId);
+   //--------TRAER UN ARREGLO PARA CONSUMIRLO--------------//
 useEffect(()=>{
 ( async ()=> {
   //creo la promesa
@@ -22,15 +24,23 @@ useEffect(()=>{
   // consumo la promesa:
 //pasos: crear la IIFE y los bloques try catch
   try{
-    const response = await fetch("https://fakestoreapi.com/products");
-    const productos = await response.json();
-    setProductos(productos);
+    if(categoryId){
+      const response = await fetch(`https://fakestoreapi.com/products/category/${categoryId}`);
+      const productos = await response.json();
+      setProductos(productos);
+
+    } else{
+      
+      const response = await fetch("https://fakestoreapi.com/products");
+      const productos = await response.json();
+      setProductos(productos);
+    }
   }
   catch(error){
         console.log(error);
   }
 })() 
-}, [])
+}, [categoryId])
 console.log(productos);
 //------------------------------------------------------//
   return (
