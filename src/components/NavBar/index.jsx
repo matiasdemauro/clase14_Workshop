@@ -3,7 +3,7 @@ import CartWidget from '../CartWidget';
 import Select from '../Select';
 import './style.css'
 import { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
  //Nombre del estado, setNombreDelEstado
@@ -25,19 +25,12 @@ const NavBar = () => {
        
     }} className='menu'
     > 
-    <a href='/#'>  <li className='item'>Gianne-app</li> </a>
-    <a href='/#'>   <li className='item'>
-              Productos
-              <ul className='submenu'>
-                 <a href='/#'> <li className='subitem'>Sillones</li></a>
-                 <a href='/#'> <li className='subitem'>Mesas</li></a>
-                 <a href='/#'> <li className='subitem'>Bazar</li></a>
-                 <a href='/#'> <li className='subitem'>Deco</li></a>
-              </ul>
-        </li> </a>
-        <a href='/#'>   <li className='item'>Nosotros</li> </a>
-        <a href='/#'>   <li className='item'>Contacto</li> </a>
-        <CartWidget/>
+    <Link to='/'>  <li className='item'>Gianne-app</li> </Link>
+    <Link to="/category/men's clothing"> <li className='item'>Men's clothing</li></Link>
+    <Link to="/category/women's clothing"> <li className='item'>Women's clothing</li></Link>
+    <Link to='/category/electronics'> <li className='item'>Electronics</li></Link>
+    <Link to='/category/jewelery'> <li className='item'>Jewelery</li></Link>
+    <CartWidget/>
         
   </ul>
   <Select handleColor ={onChangeColor}/>
