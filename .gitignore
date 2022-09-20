@@ -6,6 +6,7 @@
 .pnp.js
 /repaso
 /public/mocks/data.json
+/escape.js
 # testing
 /coverage
 

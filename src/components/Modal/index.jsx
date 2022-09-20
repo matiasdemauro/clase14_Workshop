@@ -8,12 +8,12 @@ const Modal = ({handleClose}) => {
 useEffect(()=>{
     const handleEsc = (event) => {
        console.log(event); //evento nativo del browser
-
+        //esc
        if(event.keyCode === 27) {
         console.log('will close');
         handleClose(false);
        }
-
+        //enter
        if(event.keyCode === 13) {
         console.log('will send');
         handleSubmit();
@@ -22,6 +22,8 @@ useEffect(()=>{
     window.addEventListener('keydown' , handleEsc);
 
     return () => {
+        //se eliminan los eventos nativos
+        console.log('se desmonta el componente');
         window.removeEventListener('keydown' , handleEsc);
     };
 }, [handleClose])
