@@ -1,0 +1,27 @@
+.background {
+  display: flex;
+  padding: 5px;
+  border: 2px solid red;
+  background-color: burlywood;
+}
+.buttons-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  /*border: 2px solid blue;*/
+
+}
+.rounded-button-cancel{
+  
+
+  font-size: 25px;
+  color: #000;
+  background-color: red;
+  padding: 5px;
+}
+.rounded-button-send{
+  font-size: 25px;
+  color: #000;
+  background-color: green;
+  padding: 5px;
+}
