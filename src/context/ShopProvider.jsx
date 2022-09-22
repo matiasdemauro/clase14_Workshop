@@ -35,13 +35,14 @@ export const Shop = createContext(null);
     const isInCart = (id) =>{
         return cart.some(product => product.id === id);
     }
-//Completar logica
-    const removeItem = (item) =>{
 
+    const removeItem = (item) =>{
+        cart.find(product => product.id === item.id);
+       return item.remove(item.id);
     }
 
-    const clearCart = () =>{
-
+    const clearCart = (cart) =>{
+      setCart([]);
     }
 
 
