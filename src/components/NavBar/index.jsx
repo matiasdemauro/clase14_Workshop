@@ -1,17 +1,17 @@
-import React , { useState , useContext} from 'react'
+import React , { useState } from 'react'
 import CartWidget from '../CartWidget';
 import Select from '../Select';
 import './style.css';
 
 import { Link } from 'react-router-dom';
-import {Shop} from '../../context/ShopProvider';
+
 
 const NavBar = () => {
  //Nombre del estado, setNombreDelEstado
  const [navColor,setNavColor] = useState("#f3f3f3")
  //Consumimos el context desde la NavBar
- const value = useContext(Shop)
- console.log('valor context', value);
+ //const value = useContext(Shop)
+ //console.log('valor context', value);
  const onChangeColor = (event) =>{
   //console.log(event);
  // console.log(event.target.value)

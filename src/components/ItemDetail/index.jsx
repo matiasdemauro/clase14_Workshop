@@ -1,16 +1,28 @@
-import React , {useState} from 'react'
+import React , {useState , useContext} from 'react'
 import './style.css'
 import ItemCount from './../ItemCount';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import { Shop } from '../../context/ShopProvider';
+
+
+
 const ItemDetail = ({product}) => {
   
   const [qty , setQty] = useState(0);
   const navigate = useNavigate();
+
+  const {addItem} = useContext(Shop);
+
+
   const addCart = (quantity) => {
     setQty(quantity);    
   }
+  //funcion que navega hacia Cart
   const handleFinish = () => {
+      const productToSave = {...product , quantity: qty};
+      addItem(productToSave);
       navigate('/cart');
+
   }
   console.log(qty);
   //alert(`Se agrego la cantidad ${stock} al carrito`);

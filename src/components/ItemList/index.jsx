@@ -7,7 +7,7 @@ import './style.css'
 const ItemList = ({products}) => {
   const {setMessage} = useContext(Shop);  
   const onChangeMensaje = () =>{
-        setMessage("chau")
+        setMessage('chau')
     }
 
   
