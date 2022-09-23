@@ -36,9 +36,9 @@ export const Shop = createContext(null);
         return cart.some(product => product.id === id);
     }
 
-    const removeItem = (item) =>{
-        cart.find(product => product.id === item.id);
-       return item.remove(item.id);
+    const removeItem = (itemToRemove) =>{
+      const filteredProducts = cart.filter(item => item !== itemToRemove);
+        setCart(filteredProducts)
     }
 
     const clearCart = (cart) =>{
@@ -51,7 +51,7 @@ export const Shop = createContext(null);
   //Dentro del context irian : estados , efectos y funciones auxiliares 
    
    return (
-    <Shop.Provider value={{cart, addItem}}>
+    <Shop.Provider value={{cart, addItem , removeItem, clearCart}}>
     {children}
     </Shop.Provider>
   )
