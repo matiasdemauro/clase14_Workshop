@@ -4,6 +4,8 @@ import Select from '../Select';
 import './style.css';
 
 import { Link } from 'react-router-dom';
+import AuthContainer from '../../container/AuthContainer';
+import { Button } from '@mui/material';
 
 
 const NavBar = () => {
@@ -11,17 +13,28 @@ const NavBar = () => {
  const [navColor,setNavColor] = useState("#f3f3f3")
  //Consumimos el context desde la NavBar
  //const value = useContext(Shop)
- //console.log('valor context', value);
+
+ const [loginModal , setLoginModal] = useState(false);
+ const[signupModal, setSignupModal] = useState(false);
+ 
  const onChangeColor = (event) =>{
   //console.log(event);
  // console.log(event.target.value)
  const color = event.target.value;
   setNavColor(color);
  }
+
+ const handleLogin = () => {
+  setLoginModal(true);
+};
+
+const handleSignup = ()=> {
+  setSignupModal(true);
+}
  console.log(navColor);
     return (
       <>
-    <div className='nav'>
+  <div className='nav'>
     
     
    
@@ -36,15 +49,43 @@ const NavBar = () => {
     <Link to='/category/deco'> <li className='item'>Decoracion</li></Link>
     <Link to='/category/sillones'> <li className='item'>Sillones</li></Link>
     <Link to='/category/promociones'> <li className='item'>Promociones</li></Link>
+    <div className='buttons-container'>
+      <Button
+        size='medium'
+        variant='outlined'
+        onClick={handleLogin}
+        >
+        Login
+      </Button>
+      <Button
+        size='medium'
+        variant='contained'
+        onClick={handleSignup}
+        >
+        Signup
+      </Button>
+    </div>
     <CartWidget/>
    {/* <span>{value.message}</span>*/}
     <Select handleColor ={onChangeColor}/>
     </ul>
   </div>
-  
+  {(loginModal || signupModal) && (
+    <AuthContainer
+      handleClose={()=>{
+        setLoginModal(false);
+        setSignupModal(false);
+      }}
+      login={loginModal}
+      signUp={signupModal}
+      />
+  )}    
     </>
   );
-}
+};
+
+
+  
 
 export default NavBar
 

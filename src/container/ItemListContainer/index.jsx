@@ -15,7 +15,6 @@ const ItemListContainer = ({ greeting }) => {
   //--------TRAER UN ARREGLO PARA CONSUMIRLO--------------//
   useEffect(() => {
     (async () => {
-
       try {
        
           //1) se genera la query
@@ -34,11 +33,7 @@ const ItemListContainer = ({ greeting }) => {
           });
           console.log('productsFirebase', productsFireBase);
           setProductos(productsFireBase);
-
-       
-      
-      }
-      catch (error) {
+        }catch (error) {
         console.log(error);
       }
     })()

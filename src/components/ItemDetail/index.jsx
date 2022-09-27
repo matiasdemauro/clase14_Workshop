@@ -25,7 +25,7 @@ const ItemDetail = ({product}) => {
 
   }
   console.log(qty);
-  //alert(`Se agrego la cantidad ${stock} al carrito`);
+ 
     return (
     <div className='ItemDetail'>
 <h1>{product.title}</h1>
