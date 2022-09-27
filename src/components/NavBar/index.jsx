@@ -31,10 +31,11 @@ const NavBar = () => {
     }} className='menu'
     > 
     <Link to='/'>  <li className='item'>Gianne-app</li> </Link>
-    <Link to="/category/men's clothing"> <li className='item'>Men's clothing</li></Link>
-    <Link to="/category/women's clothing"> <li className='item'>Women's clothing</li></Link>
-    <Link to='/category/electronics'> <li className='item'>Electronics</li></Link>
-    <Link to='/category/jewelery'> <li className='item'>Jewelery</li></Link>
+    <Link to="/category/bazar"> <li className='item'>Bazar</li></Link>
+    <Link to="/category/mesas"> <li className='item'>Mesas</li></Link>
+    <Link to='/category/deco'> <li className='item'>Decoracion</li></Link>
+    <Link to='/category/sillones'> <li className='item'>Sillones</li></Link>
+    <Link to='/category/promociones'> <li className='item'>Promociones</li></Link>
     <CartWidget/>
    {/* <span>{value.message}</span>*/}
     <Select handleColor ={onChangeColor}/>
