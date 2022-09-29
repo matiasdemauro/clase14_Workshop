@@ -44,6 +44,11 @@ export const Shop = createContext(null);
     const clearCart = (cart) =>{
       setCart([]);
     }
+    const total= () => {
+      const total = cart.reduce((acc, producto) => acc += producto.quantity * producto.price, 0);
+      console.log(total);
+      return total;
+    }
 
 
 
@@ -51,7 +56,7 @@ export const Shop = createContext(null);
   //Dentro del context irian : estados , efectos y funciones auxiliares 
    
    return (
-    <Shop.Provider value={{cart, addItem , removeItem, clearCart}}>
+    <Shop.Provider value={{cart, addItem , removeItem, clearCart, total}}>
     {children}
     </Shop.Provider>
   )

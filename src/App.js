@@ -12,8 +12,14 @@ import ItemDetailContainer from './container/ItemDetailContainer/index';
 import NotFound from './components/NotFound';
 import Cart from './container/CartContainer';
 import ShopProvider from './context/ShopProvider';
+import algoritmoGuardadoAutomatico from './services/guardarProductos';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(()=>{
+    console.log('se deberia ejecutar una sola vez');
+  algoritmoGuardadoAutomatico();
+  },[])
   return (
 
     <ShopProvider>

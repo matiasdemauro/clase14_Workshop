@@ -2,21 +2,54 @@ import React from 'react'
 import { useContext } from 'react'
 import { Shop } from './../../context/ShopProvider';
 import { DataGrid } from '@mui/x-data-grid';
+import { Button } from '@mui/material';
+import ordenGenerada from '../../services/generarOrden';
+
 
 const Cart = () => {
   //Traigo los params de ShopProvider a Cart()
-  const {cart , removeItem , clearCart} = useContext(Shop)
+  const {cart , removeItem , clearCart , total} = useContext(Shop)
+  
   console.log(cart);
+  
+  
+  const renderImage = (image) =>{
+    return(
+    <img 
+          src={image.value} 
+          alt='cart-product' 
+          style={{height: '120px'}}
+          ></img>
+    );
+  };
 
-
+  const renderRemoveButton = (item) =>{
+    const product = item.value;
+    return(
+      <Button 
+      onClick={()=> removeItem(product)} 
+      variant='contained' 
+      color='error'
+      >
+        Remove
+      </Button>
+    );
+  };
+  const handleBuy = () =>{
+    const importeTotal = total(cart);
+    const orden = ordenGenerada('Matias', 'matias@gmail.com' , '3254124' ,  cart, importeTotal )
+    console.log(orden);
+  }
+ 
   
         const columns = [
-          { field: 'image', headerName: 'Producto', width: 400 },
+          { field: 'image', headerName: 'Producto', width: 250 , renderCell: renderImage },
           { field: 'title', headerName: 'Detalle', width: 250 },
           { field: 'quantity', headerName: 'Cantidad', width: 80 },
           {
             field: 'remove',
-            headerName: '',
+            headerName: 'Remove',
+            renderCell : renderRemoveButton,
             width: 120,
           },
         ];
@@ -26,34 +59,30 @@ const Cart = () => {
             id: item.id,
             image: item.image,
             title: item.title,
-            quantity: item.quantity
-          })
-        } )
-        const rows = [
-          { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-          { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-          { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-          { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-          { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-          { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-          { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-          { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-          { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-        ];
+            quantity: item.quantity,
+            remove: item,
+          });
+        });
+
+        const rows = [];
   
   
     return (
+      
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid
           rows={filas}
           columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          
+          pageSize={10}
+          rowsPerPageOptions={[10]}
+          rowHeight={150}
         />
+        <Button onClick={clearCart} color='error' variant='outlined'>Clear cart</Button>
+        <Button onClick={handleBuy} >Confirmar Compra</Button>
       </div>
     );
-  }
+    };
+        
   
 
 
