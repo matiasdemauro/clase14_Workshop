@@ -34,6 +34,8 @@ const AuthContainer = ({ handleClose, login, signUp }) => {
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const uid = user.uid;
                 console.log(user);
+                console.log(uid);
+                
                 // ...
             } else {
                 console.log("No hay usuario logeado");
@@ -61,6 +63,7 @@ const AuthContainer = ({ handleClose, login, signUp }) => {
                     console.log("Login");
                     console.log(userCredential);
                     const user = userCredential.user;
+                    console.log(user);
                     // ...
                 })
                 .catch((error) => {

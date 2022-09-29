@@ -80,6 +80,8 @@ const Cart = () => {
             renderCell : renderRemoveButton,
             width: 120,
           },
+          { field: 'price', headerName: 'Subtotal', width: 100 },
+
         ];
         const filas=[];
         cart.forEach( item=>{
@@ -89,6 +91,10 @@ const Cart = () => {
             title: item.title,
             quantity: item.quantity,
             remove: item,
+            price : `$${item.price * item.quantity}`,
+            
+            
+            
           });
         });
 
@@ -105,6 +111,7 @@ const Cart = () => {
           rowsPerPageOptions={[10]}
           rowHeight={150}
         />
+        <p>Total:</p>
         <Button onClick={clearCart} color='error' variant='outlined'>Clear cart</Button>
         {loading ?  (    <div
                         style={{
