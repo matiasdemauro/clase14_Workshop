@@ -8,11 +8,13 @@ import AuthContainer from '../../container/AuthContainer';
 import { Button } from '@mui/material';
 
 
+
+
 const NavBar = () => {
  //Nombre del estado, setNombreDelEstado
  const [navColor,setNavColor] = useState("#f3f3f3")
- //Consumimos el context desde la NavBar
- //const value = useContext(Shop)
+ 
+
 
  const [loginModal , setLoginModal] = useState(false);
  const[signupModal, setSignupModal] = useState(false);
@@ -65,7 +67,7 @@ const handleSignup = ()=> {
         Signup
       </Button>
     </div>
-    <CartWidget/>
+    <Link to='/cart'><CartWidget/></Link>
    {/* <span>{value.message}</span>*/}
     <Select handleColor ={onChangeColor}/>
     </ul>

@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React , {useState , useEffect} from 'react'
 import './style.css'
 
@@ -18,11 +19,7 @@ const ItemCount = ({stock , initial , onAdd}) => {
        } else{
         alert('Se permite al menos 1 producto');}
     }
-   /* const addCart = () =>{
-        onAdd(count);
-        setCount(initial);
-    } */
-    
+ 
     //ciclo de vida
     useEffect (()=> {
         //el array de dependencia s vacio implica que el callback se ejecutrara cuando e MONTA el componente por UNICA vez.
@@ -36,10 +33,10 @@ const ItemCount = ({stock , initial , onAdd}) => {
 
     return (
     <div className='botonera'>
-        <button onClick= {handleDecrement}> - </button>
+        <Button onClick= {handleDecrement}> - </Button>
         <h2>{count}</h2>
-        <button onClick= {handleAdd}> + </button>
-        <button onClick={() => onAdd(count)}> Agregar al carrito </button>
+        <Button onClick= {handleAdd}> + </Button>
+        <Button onClick={() => onAdd(count)}> Agregar al carrito </Button>
         
     </div>
   )
