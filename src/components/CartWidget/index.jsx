@@ -2,13 +2,8 @@ import React , { useContext } from 'react'
 import './style.css'
 import { Shop } from './../../context/ShopProvider';
 
-
-
 const CartWidget = () => {
   const {cart , totalProducts} = useContext(Shop)
- 
-
-
   if(cart.length === 0) {
     return <div></div>
   }
@@ -21,8 +16,7 @@ const CartWidget = () => {
     </div>
    </>
   );}
-
-
-  }
-
+}
 export default CartWidget
+
+

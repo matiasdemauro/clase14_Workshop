@@ -44,9 +44,9 @@ export const Shop = createContext(null);
     const clearCart = (cart) =>{
       setCart([]);
     }
-   // const totalPrice= () => {
-   //   return cart.reduce((prev,act) => prev +act.quantity * act.price , 0)
-   // }
+    const totalPrice= () => {
+      return cart.reduce((prev,act) => prev +act.quantity * act.price , 0);
+    }
     const totalProducts = () =>{
      return cart.reduce((acumulador, productoActual)=> acumulador + productoActual.quantity,0);
     }
@@ -63,6 +63,7 @@ export const Shop = createContext(null);
       removeItem, 
       clearCart, 
       totalProducts,
+      totalPrice
     
       
       }}>

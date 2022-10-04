@@ -94,7 +94,8 @@ const Cart = () => {
         rowsPerPageOptions={[10]}
         rowHeight={150}
       />
-      <p >Total:</p>
+      
+      <p >Total: ${totalPrice(cart)}</p> 
       <Button onClick={clearCart} color='error' variant='outlined'>Clear cart</Button>
       {loading ? (<div
         style={{
