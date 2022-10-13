@@ -33,8 +33,8 @@ const AuthContainer = ({ handleClose, login, signUp }) => {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const uid = user.uid;
-                console.log(user);
-                console.log(uid);
+                console.log('user', user);
+                console.log('uid',uid);
                 
                 // ...
             } else {
@@ -49,11 +49,13 @@ const AuthContainer = ({ handleClose, login, signUp }) => {
         if (login) {
             //Login logic
             if (email === "") {
-                setErrorEmail("Required field");
+                setErrorEmail("Se necesita un mail");
+                console.log('setErrorEmail', setErrorEmail);
                 return;
             }
             if (password === "") {
-                setErrorPassword("Required field");
+                setErrorPassword("Se necesita una contraseña");
+                console.log('setErrorPassword', setErrorPassword);
                 return;
             }
 
@@ -63,12 +65,15 @@ const AuthContainer = ({ handleClose, login, signUp }) => {
                     console.log("Login");
                     console.log(userCredential);
                     const user = userCredential.user;
-                    console.log(user);
+                    console.log('email de indentificacion:' , user.email);
+                    setEmail(user.email);
+                    
                     // ...
                 })
                 .catch((error) => {
                     console.log(error);
                 });
+                
             setErrorEmail("");
             setErrorPassword("");
         } else {
@@ -92,7 +97,7 @@ const AuthContainer = ({ handleClose, login, signUp }) => {
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Signed in
-                    console.log(userCredential.user);
+                    console.log('userCredential.user:',userCredential.user);
                     // ...
                 })
                 .catch((error) => {

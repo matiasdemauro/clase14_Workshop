@@ -10,13 +10,34 @@ import { db } from './../../firebase/config';
 import { useState } from 'react';
 import guardarOrden from './../../services/guardarOrden';
 import { Link } from 'react-router-dom';
+import {  sendEmailVerification } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
+
+
+
+
+
+
+
+
 
 const Cart = () => {
   //primero consumo el Context
   //luego muestro lo que hay en Context
   //Muestro el carrito Cart con boton eliminar y vaciar Cart.
   const { cart, removeItem, clearCart, totalPrice } = useContext(Shop)
+ 
   const [loading, setLoading] = useState(false);
+  
+  
+  
+
+  
+  
   const renderImage = (image) => {
     return (
       <img
@@ -38,20 +59,42 @@ const Cart = () => {
       </Button>
     );
   };
+  
   const handleBuy = async () => {
     setLoading(true);
     const importeTotal = totalPrice(cart);
-    const orden = ordenGenerada('Matias', 'matias@gmail.com', '3254124', cart, importeTotal);
-    console.log(orden);
+  
+    const orden = ordenGenerada('Matias', `{email}` , '3254124', cart, importeTotal , sendEmailVerification);
+    console.log('orden:',orden);
+  
+
+
+
+
+   
     // Genero un nuevo documento en mi base de datos llamada orders utilizando el codigo proporcionado en firebase
     const docRef = await addDoc(collection(db, "orders"), orden);
+
     //Actualizamos el stock del producto
     guardarOrden(cart, orden);
     //     
     setLoading(false);
-    alert(' Gracias por su compra, Orden generada con ID: ' + docRef.id);
-
+    
+    toast('🦄 gracias por tu compra   :' + docRef.id,  {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+    
+    
+    
   }
+
   const columns = [
     { field: 'image', headerName: 'Producto', width: 250, renderCell: renderImage },
     { field: 'title', headerName: 'Detalle', width: 250 },
@@ -110,8 +153,23 @@ const Cart = () => {
         <CircularProgress />
       </div>)
         :
-
+        <>
+        
+        
         <Button onClick={handleBuy} >Confirmar Compra</Button>
+        <ToastContainer
+position="top-center"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+        </>      
       }
     </div>
   );}

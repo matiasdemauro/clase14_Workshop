@@ -1,10 +1,10 @@
 
 //Esta funcion genera una orden de compra que es un detalle sobre las cantidades y el total de los productos seleccionados.
-const ordenGenerada = (nombre,email, telefono , cart,total) => {
+const ordenGenerada = (nombre, email, telefono , cart,total) => {
   return {
         buyer: {
             nombre: nombre,
-            email:email,
+            email: email,
             telefono: telefono
         },
         items: cart
