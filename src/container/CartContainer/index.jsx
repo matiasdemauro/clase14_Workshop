@@ -30,13 +30,9 @@ const Cart = () => {
   //luego muestro lo que hay en Context
   //Muestro el carrito Cart con boton eliminar y vaciar Cart.
   const { cart, removeItem, clearCart, totalPrice } = useContext(Shop)
- 
   const [loading, setLoading] = useState(false);
-  
-  
-  
+  const [state , setState] = useState(true);
 
-  
   
   const renderImage = (image) => {
     return (
@@ -47,6 +43,7 @@ const Cart = () => {
       ></img>
     );
   };
+  
   const renderRemoveButton = (item) => {
     const product = item.value;
     return (
@@ -61,26 +58,18 @@ const Cart = () => {
   };
   
   const handleBuy = async () => {
-    setLoading(true);
     const importeTotal = totalPrice(cart);
-  
-    const orden = ordenGenerada('Matias', `{email}` , '3254124', cart, importeTotal , sendEmailVerification);
+    const orden = ordenGenerada(`{name}`, `{email}` , '3254124', cart, importeTotal , sendEmailVerification);
     console.log('orden:',orden);
-  
-
-
-
-
-   
+    setLoading(true);
+    
     // Genero un nuevo documento en mi base de datos llamada orders utilizando el codigo proporcionado en firebase
     const docRef = await addDoc(collection(db, "orders"), orden);
-
     //Actualizamos el stock del producto
     guardarOrden(cart, orden);
-    //     
     setLoading(false);
     
-    toast('🦄 gracias por tu compra   :' + docRef.id,  {
+    toast('Gracias por su compra, código de pago   :' + docRef.id,  {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -89,11 +78,11 @@ const Cart = () => {
       draggable: true,
       progress: undefined,
       theme: "light",
-      });
+    });
     
+   setState(false) 
     
-    
-  }
+}
 
   const columns = [
     { field: 'image', headerName: 'Producto', width: 250, renderCell: renderImage },
@@ -154,21 +143,22 @@ const Cart = () => {
       </div>)
         :
         <>
-        
-        
-        <Button onClick={handleBuy} >Confirmar Compra</Button>
         <ToastContainer
-position="top-center"
-autoClose={3000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        /> 
+       {state ? (<Button onClick={handleBuy} >Confirmar Compra</Button>) 
+       
+        : 
+        (<Button>VOLVER</Button>)}
         </>      
       }
     </div>

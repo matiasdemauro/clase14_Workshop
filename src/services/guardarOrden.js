@@ -1,5 +1,6 @@
 import { addDoc, collection, doc, getDoc, writeBatch } from "firebase/firestore"
-import { db } from "../firebase/config"
+import { db } from "../firebase/config";
+
 
 const guardarOrden = (cart, orden) => {
     console.log("Guardar orden");
@@ -33,18 +34,20 @@ const guardarOrden = (cart, orden) => {
                 addDoc(collection(db, 'orders'), orden).then(({ id }) => {
                     //Recién hacemos el commit una vez que se genera la order
                     batch.commit().then(() => {
-                        alert("Se genero la order con id: " + id)
+                        
+                        console.log("Se genero la order con id: " + id)
                     })
                 }).catch((err) => {
                     console.log(`Error: ${err.message}`);
                 })
             //Si tenemos productos fuera de stock al momento de generar la order avisamos al usuario
             } else {
-                let mensaje = ''
-                for (const producto of outOfStock) {
-                    mensaje += `${producto.title}`
-                }
-                alert(`Productos fuera de stock: ${mensaje}`)
+
+               //let mensaje = ''
+               //for (const producto of outOfStock) {
+               //    mensaje += `${producto.title}`
+               //}
+               //alert(`Productos fuera de stock: ${mensaje}`)
             }
         })
     })
