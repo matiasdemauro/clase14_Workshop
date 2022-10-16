@@ -158,7 +158,7 @@ const Cart = () => {
        {state ? (<Button onClick={handleBuy} >Confirmar Compra</Button>) 
        
         : 
-        (<Button>VOLVER</Button>)}
+        (<Button> <Link to='/'>VOLVER</Link></Button>)}
         </>      
       }
     </div>

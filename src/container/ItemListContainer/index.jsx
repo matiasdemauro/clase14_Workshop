@@ -3,6 +3,7 @@ import ItemList from '../../components/ItemList/index';
 import './style.css';
 import { useParams } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
+import Footer from '../../components/Footer';
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -16,6 +17,7 @@ const ItemListContainer = ({ greeting }) => {
     :
     <ItemList products={productos}/> }
       {error && <h2>{error}</h2>} 
+      <Footer/>
     </>
     
   )
