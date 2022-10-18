@@ -1,6 +1,8 @@
 import { Button } from '@mui/material';
-import React , {useState , useEffect} from 'react'
-import './style.css'
+import React , {useState , useEffect} from 'react';
+import './style.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount = ({stock , initial , onAdd}) => {
   
@@ -9,7 +11,17 @@ const ItemCount = ({stock , initial , onAdd}) => {
         if(count < stock) {
             setCount  (count+1);
         } else{
-            alert('No hay suficiente stock disponible');}
+            toast('No hay suficiente stock disponible',  {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+            }
 
     }
     const handleDecrement = () => {
@@ -17,7 +29,17 @@ const ItemCount = ({stock , initial , onAdd}) => {
        if(count <= stock && count > 1 ) {
         setCount(count-1);
        } else{
-        alert('Se permite al menos 1 producto');}
+        toast('Se permite al menos 1 producto',  {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          })
+        }
     }
  
     //ciclo de vida
@@ -33,11 +55,11 @@ const ItemCount = ({stock , initial , onAdd}) => {
 
     return (
     <div className='botonera'>
-        <Button onClick= {handleDecrement}> - </Button>
+        <Button onClick= {handleDecrement}> <span> - </span></Button>
         <h2>{count}</h2>
-        <Button onClick= {handleAdd}> + </Button>
-        <Button onClick={() => onAdd(count)}> Agregar al carrito </Button>
-        
+        <Button onClick= {handleAdd}> <span> + </span></Button>
+        <Button onClick={() => onAdd(count)}> <span> Agregar al carrito </span> </Button>
+        <ToastContainer/>
     </div>
   )
 }

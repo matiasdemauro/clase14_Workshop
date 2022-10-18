@@ -2,6 +2,9 @@ import React from 'react'
 import './style.css'
 import { useNavigate } from "react-router-dom";
 
+
+
+
 const Item = ({product}) => {
   
   const navigate = useNavigate();
@@ -15,8 +18,9 @@ const Item = ({product}) => {
   return (
     //acá va una card
     <>
-   
-    <div className='items' onClick={handleNavigate}>
+  
+    <div className='items' onClick={handleNavigate}> 
+    
     <img className='cardImage' src={product.image}  alt='foto'/>
    
     
@@ -26,7 +30,8 @@ const Item = ({product}) => {
            
             
             
-     </div>   
+     </div>  
+      
     
 
     </>)

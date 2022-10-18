@@ -24,7 +24,7 @@ const ItemDetail = ({product}) => {
       navigate('/cart');
   }
 
- // console.log(qty);
+
    
     
         return (
@@ -40,8 +40,8 @@ const ItemDetail = ({product}) => {
         <div className='detailContinue'>
            <h3>Total:</h3>
            <p>${product.price * qty}</p>
-            <Button onClick={handleFinish}>
-           Finalizar compra
+            <Button color='primary' onClick={handleFinish}>
+           Confirmar compra
             </Button> 
         </div>
          )}

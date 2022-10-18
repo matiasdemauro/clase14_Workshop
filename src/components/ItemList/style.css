@@ -1,11 +1,7 @@
 .list-container{
-    border: 2px solid blue;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 50px;
     width: 100%;
-    
-    
-    
 }

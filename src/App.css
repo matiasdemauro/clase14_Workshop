@@ -28,14 +28,14 @@ body{
   justify-content: center;
   margin-top: 10px;
   
- /* border: 2px solid red;*/
+ 
  -webkit-animation: scale-up-center 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: scale-up-center 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 .logo-up img{
   width: 300px;
   border-radius: 50%;
-  /*border: 2px solid blue;*/
+  
 }
 @-webkit-keyframes scale-up-center {
   0% {

@@ -42,12 +42,7 @@ const guardarOrden = (cart, orden) => {
                 })
             //Si tenemos productos fuera de stock al momento de generar la order avisamos al usuario
             } else {
-
-               //let mensaje = ''
-               //for (const producto of outOfStock) {
-               //    mensaje += `${producto.title}`
-               //}
-               //alert(`Productos fuera de stock: ${mensaje}`)
+                console.log('producto fuera de stock')
             }
         })
     })
