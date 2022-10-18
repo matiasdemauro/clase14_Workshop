@@ -13,9 +13,6 @@ import { Button } from '@mui/material';
 const NavBar = () => {
  //Nombre del estado, setNombreDelEstado
  const [navColor,setNavColor] = useState("#f3f3f3")
- 
-
-
  const [loginModal , setLoginModal] = useState(false);
  const[signupModal, setSignupModal] = useState(false);
  

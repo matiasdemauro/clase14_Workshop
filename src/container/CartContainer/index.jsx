@@ -59,7 +59,7 @@ const Cart = () => {
   
   const handleBuy = async () => {
     const importeTotal = totalPrice(cart);
-    const orden = ordenGenerada(`{name}`, `{email}` , '3254124', cart, importeTotal , sendEmailVerification);
+    const orden = ordenGenerada(`{name}`, `{email}` , '{phone}', cart, importeTotal , sendEmailVerification);
     console.log('orden:',orden);
     setLoading(true);
     
@@ -118,13 +118,13 @@ const Cart = () => {
   }
   else{
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 400, width: '100%' , marginTop:'80px' }}>
       <DataGrid
         rows={filas}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
-        rowHeight={150}
+        rowHeight={100}
       />
       
       <p >Total: ${totalPrice(cart)}</p> 

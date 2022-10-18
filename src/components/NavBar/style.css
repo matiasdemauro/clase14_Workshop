@@ -14,8 +14,10 @@
     justify-content: center;
     position: absolute;
     list-style: none;
-   height: 40px;
-    border-radius: 1em;
+    height: 70px;
+    width: 100%;
+    
+    
 }
 .menu a{
     text-decoration: none;
@@ -24,12 +26,13 @@
 
 .item {
     position: relative;
-    font-size: 20px;
-    border-radius: 1em;
+    font-size: 25px;
+    
     padding-inline: 10px;
     list-style: none;
     z-index: 20;
-   
+    color: crimson;
+   margin-top: 13px;
 }
 
 .submenu {
@@ -40,28 +43,21 @@
     
 }
 
-.submenu li {
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    padding: 3px;
-    border-radius: 1em;
-    width: 140%;
-    margin-left: -20%;
-}
 
-.submenu li:hover {
-    background-color: rgb(176, 167, 129);
-    color: beige;
-}
 
 .item:hover {
   /* background-color: rgb(176, 167, 129, 0.7);*/
   
-    color: white;
+    color: rgba(109, 102, 102, 0.5);
     cursor: pointer;
 }
 
 .item:hover .submenu {
     display: block;
+}
+.buttons-container{
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 3px;
+    
 }

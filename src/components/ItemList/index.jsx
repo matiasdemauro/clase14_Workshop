@@ -1,6 +1,7 @@
 import React from 'react'
 import Item from '../Item'
 import './style.css'
+import Footer from './../Footer/index';
 
 const ItemList = ({ products }) => {
 
@@ -11,7 +12,7 @@ const ItemList = ({ products }) => {
         return <Item key={product.id} product={product} />
       })}
 
-
+<Footer/>
 
     </div>
   )

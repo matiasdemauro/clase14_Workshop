@@ -1,9 +1,13 @@
 .selector{
     display: flex;
     justify-content: center;
+    height: 30px;
+    margin-top: 3px;
+    
    
 }
 .selector select{
     background: bisque;
-    border-radius: 10px;
+    
+    
 }
